@@ -3,7 +3,9 @@
 //Console.WriteLine(Reverse("Hello, World!"));
 //PrintOddsBelow1000();
 //Console.WriteLine(NumberOfDigits(1111111111));
-
+//Console.WriteLine(NumberOfOccurences("ababababaabaaaaaaa", 'a'));
+//Console.WriteLine(SumOfDigits(199999999));
+CreatePattern();
 
 
 // TODO: Create a method that takes a string as input and prints the string in reverse order using a loop.
@@ -32,21 +34,42 @@ static void PrintOddsBelow1000()
 
 
 // TODO: Create a method that takes a number from the user and returns the number of digits in that number
-static int NumberOfDigits(int number)
+static int NumberOfDigits(int num)
 {
     var count = 0;
-    foreach (var digit in number.ToString())
+    foreach (var digit in num.ToString())
     {
         count++;
     }
     return count;
 }
 
+
 // TODO: Create a method that takes a string and a character and returns the number of times that character appears in the string
+static int NumberOfOccurences(string str, char letter)
+{
+    var count = 0;
+    foreach (var l in str)
+    {
+        if (l == letter)
+        {
+            count++;
+        }
+    }
+    return count;
+}
 
 
 // TODO: Create a method that takes a number and calculates the sum of it's digits
-
+static int SumOfDigits(int num)
+{
+    var sum = 0;
+    foreach (var digit in $"{num}")
+    {
+        sum += int.Parse($"{digit}");
+    }
+    return sum;
+}
 
 
 // Bonus:  Create a method that prints a patern.
@@ -61,3 +84,14 @@ static int NumberOfDigits(int number)
  *****
 
  */
+static void CreatePattern()
+{
+    for (int i = 0; i <= 5; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            Console.Write('*');
+        }
+        Console.WriteLine();
+    }
+}
